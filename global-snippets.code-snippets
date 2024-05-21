@@ -1,17 +1,17 @@
 {
-    "Print Hello World": {
-        "prefix": "hello",
-        "body": [
-            "echo 'Hello, World!'"
-        ],
-        "description": "Print Hello World to console"
-    },
-    "Print to console": {
-        "prefix": "log",
-        "body": [
-            "console.log('$1');",
-            "$2"
-        ],
-        "description": "Log output to console"
-    }
+    "Abertura de chamados filhos": {
+		"scope": ["textile"],
+        "prefix": ["chamadoFilho" , "bauChamado"],
+		"body": [
+		"Titulo: $1 ",
+		"Descrição: $2",
+		"Área Responsável: ${3:Suporte A aplicativos}",
+		"Contato: Chamado complementar",
+		"Ramal: ${4:2389}",
+		"Técnico (a): ${5:Ilailson Rocha}",
+		"",
+		"$0"
+		],
+		"description": "Abertura de chamados filhos"
+	} 
 }
