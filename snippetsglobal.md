@@ -62,18 +62,58 @@ ln -s ~/vscode-snippets/global-snippets.code-snippets ~/.config/Code/User/snippe
 
 Após criar o link simbólico, reinicie o VS Code. Seus snippets devem estar disponíveis em todos os projetos.
 
-### Alternativa: Configuração de Snippets no VS Code Diretamente
 
-Você também pode adicionar snippets diretamente através da interface do VS Code para garantir que estejam disponíveis globalmente:
+### =============================================================================================
 
-1. Abra o VS Code.
-2. Pressione `Ctrl + Shift + P` para abrir a paleta de comandos.
-3. Digite `Preferences: Configure User Snippets` e selecione essa opção.
-4. Selecione `New Global Snippets file`.
-5. Nomeie o arquivo e adicione seus snippets no formato JSON fornecido acima.
+### Usando Vários Arquivos de Snippets no VS Code
 
-### Conclusão
+Sim, você pode ter múltiplos arquivos de snippets com nomes diferentes no VS Code. Isso permite que você organize seus snippets de maneira mais estruturada e específica. Veja como você pode fazer isso:
 
-Usando esses métodos, você pode criar e utilizar snippets que estarão disponíveis em todos os projetos no VS Code. Isso ajuda a manter seu fluxo de trabalho eficiente, permitindo que você acesse rapidamente os trechos de código que usa com frequência.
+#### Passo 1: Crie Arquivos de Snippets
 
-Se precisar de mais assistência ou detalhes adicionais, sinta-se à vontade para perguntar!
+1. No diretório onde você deseja armazenar seus snippets (por exemplo, `~/vscode-snippets`), crie múltiplos arquivos `.code-snippets` com nomes descritivos. Por exemplo:
+
+    ```bash
+    mkdir -p ~/vscode-snippets
+    touch ~/vscode-snippets/javascript-snippets.code-snippets
+    touch ~/vscode-snippets/python-snippets.code-snippets
+    ```
+
+2. Adicione os snippets desejados em cada arquivo. Por exemplo, no arquivo `javascript-snippets.code-snippets`:
+
+    ```json
+    {
+        "Print to console": {
+            "prefix": "log",
+            "body": [
+                "console.log('$1');",
+                "$2"
+            ],
+            "description": "Log output to console"
+        }
+    }
+    ```
+
+3. E no arquivo `python-snippets.code-snippets`:
+
+    ```json
+    {
+        "Print to console": {
+            "prefix": "print",
+            "body": [
+                "print('$1')"
+            ],
+            "description": "Print output to console"
+        }
+    }
+    ```
+
+#### Passo 2: Linkar Arquivos ao Diretório de Snippets do VS Code
+
+Para fazer com que o VS Code reconheça esses arquivos, você pode criar links simbólicos para o diretório de snippets do VS Code:
+
+```bash
+ln -s ~/vscode-snippets/javascript-snippets.code-snippets ~/.config/Code/User/snippets/javascript-snippets.code-snippets
+ln -s ~/vscode-snippets/python-snippets.code-snippets ~/.config/Code/User/snippets/python-snippets.code-snippets
+```
+REINICIAR O VSCODE
